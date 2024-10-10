@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -13,6 +14,10 @@
     --bg-dark: #0a192f;
     --text-light: #ccd6f6;
     --text-dark: #8892b0;
+    --container-width: min(100% - 2rem, 1200px);
+    --space-sm: clamp(0.5rem, 1vw, 1rem);
+    --space-md: clamp(1rem, 2vw, 2rem);
+    --space-lg: clamp(2rem, 4vw, 4rem);
 }
 
 body {
@@ -20,12 +25,21 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
+    position: relative;
+    max-width: 100%;
 }
 
 /* Circle Background with Lines */
 /* 3D Glowing Circle with Lines */
 /* Container for 3D perspective */
 /* Container for the 3D sphere with logo */
+
+.container {
+    width: var(--container-width);
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
 .sphere-container {
     position: fixed;
     top: 50%;
@@ -157,6 +171,17 @@ h1, h2, h3, p {
     text-shadow: 0 0 10px rgba(0, 255, 255, 0), 
                  0 0 20px rgba(0, 255, 255, 0),
                  0 0 30px rgba(0, 255, 255, 0);
+}
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+}
+
+.hero .subheading {
+    font-size: clamp(1rem, 2vw, 1.5em);
 }
 
 /* Glowing border for interactive elements */
@@ -514,14 +539,17 @@ body.dark-mode .hero .subheading {
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 1rem;
     position: fixed;
+    left: 0;
     top: 0;
     width: 100%;
     background: rgba(6, 192, 224, 0.8);
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: background 0.3s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 body.dark-mode .navbar {
@@ -661,10 +689,11 @@ body.dark-mode .skills-section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--space-md);
     max-width: 1200px;
     margin: 0 auto;
+    padding: var(--space-md);
 }
 
 .skill-card {
@@ -745,10 +774,11 @@ body.dark-mode .skill-bar .progress {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--space-md);
     max-width: 2000px;
     margin: 0 auto;
+
 }
 
 .photo-border {
@@ -931,8 +961,8 @@ body.dark-mode .timeline-section {
 
 /* Garis pertama (sebelumnya sudah ada) */
 .timeline-container::after {
-    left: 45.65dvw;  /* Ubah posisi sesuai kebutuhan */
-    margin-left: -3px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
@@ -1047,14 +1077,16 @@ body.dark-mode .contact-section {
 #contactForm {
     max-width: 600px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: var(--space-md);
+    padding: var(--space-md);
 }
 
 #contactForm input,
 #contactForm textarea {
+    width: 100%;
     padding: 15px;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-sm);
     border: 2px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
@@ -1153,20 +1185,25 @@ body.dark-mode .social-links a:hover {
 
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
+    .skills-grid,
     .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+        gap: var(--space-md);
+        width: var(--container-width);
+        margin-inline: auto;
+        padding: var(--space-md);
     }
 
     .timeline-container::after {
-        left: 50%;
+        /* Sesuaikan untuk mobile */
+        left: 2rem;
+        transform: none;
     }
-
+    
     .timeline-block {
-        width: 50%;
+        width: 100%;
+        padding-left: 4rem;
     }
 
     .timeline-block:nth-child(even)::after {
@@ -1194,23 +1231,31 @@ body.dark-mode .social-links a:hover {
 
 @media screen and (max-width: 768px) {
     .navbar .menu {
-        flex-direction: column;
-        background-color: rgba(47, 205, 233, 0);
-        position: absolute;
+        position: fixed;
         top: 60px;
-        right: 20px;
-        width: 200px;
-        border-radius: 5px;
-        display: none;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 60px);
+        background: rgba(47, 205, 233, 0.95);
+        backdrop-filter: blur(8px);
+        transition: 0.3s ease;
+        flex-direction: column;
+        padding: 1rem;
     }
 
     .navbar .menu.active {
-        display: flex;
+        right: 0;
     }
 
+  
     .navbar .menu .nav-link {
         padding: 15px;
         border-radius: 0;
+        display: block;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        text-align: left;
     }
 
     .hamburger {
@@ -1279,6 +1324,14 @@ body.dark-mode .social-links a:hover {
     .timeline-block::after {
         left: 30px;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
 }
 
 /* Additional Animations and Effects */
@@ -1388,4 +1441,5 @@ a:focus, button:focus, input:focus, textarea:focus {
 
 body.dark-mode a:focus, body.dark-mode button:focus, body.dark-mode input:focus, body.dark-mode textarea:focus {
     outline-color: #66bb6a;
+}
 }
