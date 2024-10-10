@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abizar Diaz Ulhaq - Profesional Portfolio & Bio">
+    <meta name="keywords" content="Abizar Diaz Ulhaq, Portfolio, Public Speaker, IoT, Software Engineering">
+    <meta name="author" content="Abizar Diaz Ulhaq">
+    <title>Abizar Diaz Ulhaq- Portfolio</title>
+    <link rel="stylesheet" href="AbieStyles.css">
+    <link rel="icon" href="Logo_Abie-removebg-preview (1).png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <div class="circle-background"></div>
+    <div class="sphere-container">
+        <!-- Glowing rotating elements surrounding the logo -->
+        <div class="glowing-sphere">
+            <!-- Static 3D logo in the center -->
+            <div class="logo-center"></div>
+        </div>
+    </div>
+    
+    <!-- Falling star effects in the background -->
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    
+    
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Full-screen dynamic background with parallax and animated elements -->
+    <div class="background">
+        <div class="clouds"></div>
+        <div class="leaves"></div>
+        <div class="water-ripple"></div>
+        <div class="stars"></div>
+        <div class="sun"></div>
+        <div class="moon"></div>
+    </div>
+
+    <!-- Wrapper for main content -->
+    <div class="wrapper">
+        <!-- Header Section -->
+        <header class="hero">
+            <div class="navbar">
+                <img src="Logo_Abie-removebg-preview (1).png" alt="Logo" class="logo">
+                <nav aria-label="Main Navigation">
+                    <ul class="menu">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" aria-label="Toggle Navigation" tabindex="0">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="animate-text">Abizar Diaz Ulhaq</h1>
+                <p class="subheading">Full Stack Developer | Innovator | Leader</p>
+                <a href="#about" class="scroll-btn">Explore My Work</a>
+                <!-- Dark Mode Toggle -->
+                <div class="theme-toggle">
+                    <input type="checkbox" id="darkModeToggle">
+                    <label for="darkModeToggle" class="toggle-label">
+                        <span class="toggle-inner"></span>
+                        <span class="toggle-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section parallax">
+    <div class="about-content">
+        <img src="Foto web.jpg" alt="Abizar Diaz Ulhaq" class="profile-img" loading="lazy">
+        <h2>About Me</h2>
+        <p>Hello, I’m Abizar Diaz Ulhaq, a Public Speaker with a practical experience from 5 years ago. Passionate about innovative tech and leadership, I aim to integrate social impact into technology.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/abizar-diaz-ulhaq-01623b232/" target="_blank">
+                <img src="Linkedin.png" class="Linkedin-img" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/abizarrdzulhq_" target="_blank">
+                <img src="Instagram.png" class="Instagram-img" alt="Instagram">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=6285215494429" target="_blank">
+                <img src="Whatsapp.png" class="Whatsapp-img" alt="WhatsApp">
+            </a>
+            <a href="https://youtube.com/@sanomanjiro-pj6us?si=My0ffw1aOEZNxEKf" target="_blank">
+                <img src="Youtube.png" class="Youtube-img" alt="YouTube">
+            </a>
+        </div>
+    </div>
+</section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Viirtual Asisstant</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Public Speaking</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>IoT & Embedded Systems</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="65%"></div>
+                    </div>
+                </div>
+                <!-- Additional Skills -->
+                <div class="skill-card">
+                    <h3>Editing</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Jurnal Chekcer</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Desgin</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="65%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with 6 bordered images for photos -->
+        <section id="projects" class="projects-section">
+            <h2>My Work Portfolio</h2>
+
+            <!-- Bordered Photo Gallery -->
+            <div class="photo-grid">
+                <div class="photo-border">
+                    <img src="Project Caleg.jpeg" alt="Project 1" class="project-img" onclick="openModal(1)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project LPPSP UI.jpeg" alt="Project 2" class="project-img" onclick="openModal(2)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Bintang Lima Brata.jpeg" alt="Project 3" class="project-img" onclick="openModal(3)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Adzan Battle Indonesia.jpeg" alt="Project 4" class="project-img" onclick="openModal(4)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Poster Promo.jpeg" alt="Project 5" class="project-img" onclick="openModal(5)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Film Panggenan.jpeg" alt="Project 6" class="project-img" onclick="openModal(6)" loading="lazy">
+                </div>
+            
+            </div>
+
+            <!-- Modal for displaying the project gallery -->
+            <div id="modalGallery" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <div class="slides fade">
+                        <img src="images/photo1_large.jpg" alt="Project 1">
+                        <div class="caption">Project 1: Smart Energy System</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo2_large.jpg" alt="Project 2">
+                        <div class="caption">Project 2: AI-Based Induction Stove</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo3_large.jpg" alt="Project 3">
+                        <div class="caption">Project 3: IoT Home Automation</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo4_large.jpg" alt="Project 4">
+                        <div class="caption">Project 4: Sustainable Energy Solutions</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo5_large.jpg" alt="Project 5">
+                        <div class="caption">Project 5: Machine Learning Model</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo6_large.jpg" alt="Project 6">
+                        <div class="caption">Project 6: Full Stack Web Application</div>
+                    </div>
+
+                    <!-- Next/previous controls -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Timeline Section for Innovation Highlights -->
+        <section id="timeline" class="timeline-section">
+            <h2>Innovation Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Launched my first IoT-based project: a smart energy system.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Developed a machine learning model for energy consumption prediction.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Received the ITB Excellence Award for innovations in smart technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Built a full-stack web application for home automation using React and Node.js.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Stepcharge was recognized as one of the top 10 sustainable projects in Indonesia.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <p id="formFeedback" class="feedback"></p>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Abizar Diaz Ulhaq. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript for photo gallery, timeline, modal, and dynamic content -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="AbieScript.js"></script>
+</body>
+</html>
