@@ -1,1425 +1,308 @@
-
-/* Dark background with subtle glow effect */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-:root {
-    --primary: #64ffda;
-    --bg-dark: #0a192f;
-    --text-light: #ccd6f6;
-    --text-dark: #8892b0;
-    /* Tambahkan spacing variables */
-    --space-sm: clamp(0.5rem, 1vw, 1rem);
-    --space-md: clamp(1rem, 2vw, 2rem);
-    --space-lg: clamp(2rem, 4vw, 4rem);
-}
-
-body {
-    background: var(--bg-dark);
-    color: var(--text-dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Circle Background with Lines */
-/* 3D Glowing Circle with Lines */
-/* Container for 3D perspective */
-/* Container for the 3D sphere with logo */
-.sphere-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    perspective: 1000px; /* 3D perspective */
-    z-index: 0;
-}
-
-/* Glowing 3D Sphere */
-.glowing-sphere {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    position: relative;
-    background: radial-gradient(circle, rgba(0, 255, 255, 0.2), rgba(0, 0, 0, 0.8));
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3), 0 0 100px rgba(0, 255, 255, 0.2);
-    transform-style: preserve-3d;
-}
-
-
-/* Inner layers and lines for complexity */
-.glowing-sphere:before,
-.glowing-sphere:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    background: none;
-    border: 2px solid rgba(0, 255, 255, 0.5);
-    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
-    transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
-    animation: rotateLines 15s infinite linear;
-}
-
-.glowing-sphere:before {
-    animation: rotateLinesInverse 10s infinite linear;
-    border-color: rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
-
-.glowing-sphere::after {
-    animation: rotateLinesInverse 15s infinite linear;
-    border-color: rgba(0, 255, 255, 0.3);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
-}
-
-
-
-/* 3D Rotation Animation */
-@keyframes rotateSphere {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
-}
-
-@keyframes rotateLines {
-    from {
-        transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
-    }
-}
-
-@keyframes rotateLinesInverse {
-    from {
-        transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotateX(-360deg) rotateY(-360deg);
-    }
-}
-
-@keyframes rotateLayers {
-    from {
-        transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg);
-    }
-}
-
-/* Pulsing Glow Effect */
-@keyframes glowPulse {
-    0%, 100% {
-        box-shadow: 0 0 30px rgba(0, 255, 255, 0.5), 0 0 60px rgba(0, 255, 255, 0.3), 0 0 100px rgba(0, 255, 255, 0.2);
-    }
-    50% {
-        box-shadow: 0 0 50px rgba(0, 255, 255, 0.7), 0 0 80px rgba(0, 255, 255, 0.5), 0 0 120px rgba(0, 255, 255, 0.3);
-    }
-}
-
-/* Logo in the center */
-.logo-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px; /* Adjust based on logo size */
-    height: 120px;
-    background: url('Logo Abie.jpg') no-repeat center center;
-    background-size: contain;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7), 0 0 40px rgba(0, 255, 255, 0.4);
-}
-
-
-/* Rotation animation for the circle */
-@keyframes rotateCircle {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-
-/* Glow effect for text */
-h1, h2, h3, p {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0), 
-                 0 0 20px rgba(0, 255, 255, 0),
-                 0 0 30px rgba(0, 255, 255, 0);
-}
-h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-}
-
-h2 {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-}
-
-.hero .subheading {
-    font-size: clamp(1rem, 2vw, 1.5em);
-}
-
-/* Glowing border for interactive elements */
-button, a {
-    color: #fff;
-    border: 2px solid #00ffff;
-    background-color: transparent;
-    padding: 10px 20px;
-    border-radius: 25px;
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.747),
-                0 0 20px rgba(0, 255, 255, 0.4);
-    transition: 0.3s;
-}
-
-button:hover, a:hover {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.719),
-                0 0 30px rgba(0, 255, 255, 0.6);
-    background-color: rgba(0, 255, 115, 0.479);
-}
-
-/* Glowing border for other content sections */
-.section {
-    padding: 50px;
-    margin: 20px auto;
-    border: 2px solid rgba(0, 255, 255, 0.664);
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6),
-                0 0 20px rgba(0, 255, 255, 0.4);
-}
-
-body.dark-mode {
-    background-color: #4b565f77;
-    color: #0e0d0d;
-}
-
-.wrapper {
-    position: relative;
-    z-index: 1;
-}
-
-/* Preloader Styling */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #ffffff;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loader {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid rgba(0, 255, 255, 0.8);
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Background Elements */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
-}
-
-.background div {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background-repeat: repeat;
-    animation: moveElements linear infinite;
-}
-
-.clouds {
-    background-image: url('Bg.jpg');
-    top: 10%;
-    left: -50%;
-    animation-duration: 60s;
-    opacity: 3;
-}
-
-.leaves {
-    background-image: url('../images/leaves.png');
-    top: 30%;
-    left: -40%;
-    animation-duration: 80s;
-    opacity: 0.6;
-}
-
-.stars {
-    background-image: url('../images/stars.png');
-    top: 0;
-    left: 0;
-    animation-duration: 100s;
-    opacity: 0.3;
-}
-
-.sun {
-    background-image: url('../images/sun.png');
-    top: 20%;
-    left: 70%;
-    width: 100px;
-    height: 100px;
-    background-size: contain;
-    animation: rotateSun 20s linear infinite;
-}
-
-.moon {
-    background-image: url('../images/moon.png');
-    top: 15%;
-    left: 80%;
-    width: 80px;
-    height: 80px;
-    background-size: contain;
-    animation: rotateMoon 25s linear infinite;
-}
-
-.water-ripple {
-    background-image: url('../images/water-ripple.png');
-    bottom: 0;
-    left: 0;
-    animation-duration: 50s;
-    opacity: 0.4;
-}
-
-/* Keyframes for Background Animations */
-@keyframes moveElements {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-@keyframes rotateSun {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes rotateMoon {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(-360deg); }
-}
-
-/* Parallax Section Styling */
-.parallax {
-    background: url('../images/parallax-bg.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-}
-
-.about-section {
-    padding: 50px 0;
-    background: #00f7ff00;
-    position: relative;
-    text-align: center;
-}
-
-.about-content {
-    background: rgba(6, 189, 202, 0.301);
-    padding: 40px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 5px 15px rgb(0, 0, 0);
-    transition: background 0.3s, box-shadow 0.3s;
-}
-
-body.dark-mode .about-content {
-    background: rgba(6, 216, 231, 0.486);
-    box-shadow: 0 5px 15px rgba(3, 3, 3, 0.1);
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 5px solid rgba(17, 133, 123, 0);
-    transition: transform 0.3s;
-}
-
-.profile-img:hover {
-    transform: scale(1.1);
-}
-
-h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: #00f7ff;
-    display: block;
-    margin: 10px auto 0 auto;
-    border-radius: 20px;
-}
-
-.about-content p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-    border: none;
-}
-
-.social-links a {
-    display: inline-block;
-    transition: transform 0.3s;
-}
-
-.social-links a:hover {
-    transform: scale(1.05);
-}
-
-.Instagram-img, .Linkedin-img, .Whatsapp-img  {
-    width: 40px;
-    height: auto;
-    border: none;
-    border-radius: 0;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.Youtube-img {
-    position: absolute top;
-    width: 70px;
-    height: 40px;
-    border: none;
-    border-radius: auto;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.Instagram-img:hover, .Linkedin-img:hover, .Whatsapp-img:hover, .Youtube-img:hover {
-    transform: scale(1.05);
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-    .about-content {
-        padding: 30px;
-    }
-
-    h2 {
-        font-size: 2em;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .social-links {
-        gap: 15px;
-    }
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    text-align: center;
-    color: rgb(34, 125, 161);
-    padding: 100px 20px 60px 20px;
-    background: linear-gradient(to right, rgba(141, 242, 255, 0.226), rgba(9, 134, 165, 0.493));
-    transition: background 0.3s;
-}
-
-body.dark-mode .hero {
-    background: linear-gradient(to right, r=--gba(18, 18, 18, 0.8), rgba(8, 158, 163, 0.445));
-}
-
-.hero h1 {
-    font-size: 4em;
-    font-weight: bold;
-    margin: 0;
-    letter-spacing: 2px;
-    animation: fadeInDown 2s ease-out;
-    transition: color 0.3s;
-}
-
-body.dark-mode .hero h1 {
-    color: #f1f1f1;
-}
-
-.hero .subheading {
-    font-size: 1.5em;
-    margin: 10px 0 30px 0;
-    animation: fadeInUp 2s ease-out;
-    transition: color 0.3s;
-}
-
-body.dark-mode .hero .subheading {
-    color: #ddd;
-}
-
-.scroll-btn {
-    margin-top: 20px;
-    padding: 10px 25px;
-    background-color: #fff;
-    color: #333;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, color 0.3s;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.scroll-btn:hover {
-    background-color: #06ffff;
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-/* Keyframes for Hero Animations */
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(6, 192, 224, 0.8);
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-body.dark-mode .navbar {
-    background: rgba(19, 136, 151, 0.267);
-}
-
-.navbar .logo {
-    height: 50px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.navbar .logo:hover {
-    transform: scale(2.1);
-}
-
-.menu {
-    list-style-type: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-.menu .nav-link {
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-    padding: 8px 15px;
-    border-radius: 20px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.menu .nav-link:hover {
-    background-color: #00ffff;
-    color: #fff;
-}
-
-.theme-toggle {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.toggle-label {
-    display: inline-block;
-    width: 50px;
-    height: 25px;
-    position: relative;
-    cursor: pointer;
-}
-
-.toggle-inner {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: #ccc;
-    border-radius: 25px;
-    transition: background-color 0.3s;
-}
-
-.toggle-switch {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 21px;
-    height: 21px;
-    background-color: #fff;
-    border-radius: 50%;
-    transition: transform 0.3s;
-}
-
-#darkModeToggle:checked + .toggle-label .toggle-inner {
-    background-color: #00ffff;
-}
-
-#darkModeToggle:checked + .toggle-label .toggle-switch {
-    transform: translateX(25px);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: rgba(83, 216, 172, 0.349);
-    margin: 4px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active div:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger.active div:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active div:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Skills Section */
-.skills-section {
-    padding: 50px 20px;
-    background-color: #0e8f9400;
-    transition: background-color 0.3s;
-}
-
-body.dark-mode .skills-section {
-    background-color: #ffffff;
-}
-
-.skills-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.skills-section h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: #00ffdd;
-    display: block;
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: var(--space-md);
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-md);
-}
-
-.skill-card {
-    background-color: rgba(44, 155, 146, 0.295);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px 20px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-}
-
-body.dark-mode .skill-card {
-    background-color: #2c2c2c;
-    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
-}
-
-.skill-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.skill-card h3 {
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    color: #ffffff;
-    transition: color 0.3s;
-}
-
-body.dark-mode .skill-card h3 {
-    color: #00ffea;
-}
-
-.skill-bar {
-    background-color: #ddd;
-    border-radius: 25px;
-    height: 20px;
-    margin-top: 10px;
-    overflow: hidden;
-    transition: background-color 0.3s;
-}
-
-body.dark-mode .skill-bar {
-    background-color: #444;
-}
-
-.skill-bar .progress {
-    background-color: #4caf50;
-    height: 100%;
-    width: 0;
-    border-radius: 25px;
-    transition: width 1.5s ease-in-out, background-color 0.3s;
-}
-
-body.dark-mode .skill-bar .progress {
-    background-color: #66bb6a;
-}
-
-/* Image Gallery */
-.projects-section {
-    padding: 50px 20px;
-}
-
-.projects-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.projects-section h2::after {
-    content: '';
-    width: 60px;
-    height: 2px;
-    background: #00e4e4;
-    display: block;
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
-}
-
-.photo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-    gap: var(--space-md);
-    max-width: 2000px;
-    margin: 0 auto;
-
-}
-
-.photo-border {
-    border: 2px solid #00ffea;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-
-.photo-border:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    border-color: #00e6c0;
-}
-
-body.dark-mode .photo-border {
-    border-color: #66bb6a;
-}
-
-body.dark-mode .photo-border:hover {
-    border-color: #4caf50;
-}
-
-.project-img {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    display: block;
-    transition: transform 0.3s;
-}
-
-.project-img:hover {
-    transform: scale(1.05);
-}
-
-/* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 51, 59, 0.8);
-    overflow: auto;
-    animation: fadeInModal 0.5s;
-    transition: opacity 0.5s;
-}
-
-@keyframes fadeInModal {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    position: relative;
-    margin: 5% auto;
-    padding: 0;
-    width: 90%;
-    max-width: 1000px;
-    animation: slideIn 0.5s;
-}
-
-@keyframes slideIn {
-    from { transform: translateY(-50px); }
-    to { transform: translateY(0); }
-}
-
-.modal img {
-    width: 100%;
-    border-radius: 5px 5px 0 0;
-    transition: transform 0.3s;
-}
-
-.modal img:hover {
-    transform: scale(1.02);
-}
-
-.caption {
-    padding: 15px;
-    background-color: #fff;
-    text-align: center;
-    font-size: 1.2em;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode .caption {
-    background-color: #2c2c2c;
-    color: #f1f1f1;
-}
-
-.close {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: #fff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #00ffdd;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -30px;
-    padding: 16px;
-    color: rgb(0, 0, 0);
-    font-weight: bold;
-    font-size: 30px;
-    transition: background-color 0.3s;
-    user-select: none;
-    border-radius: 0 3px 3px 0;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: #00ffea;
-}
-
-/* Timeline Section */
-.timeline-section {
-    padding: 50px 20px;
-    background-color: #03423d5e;
-    transition: background-color 0.3s;
-}
-
-body.dark-mode .timeline-section {
-    background-color: #1e1e1e;
-}
-
-.timeline-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.timeline-section h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: rgba(0, 255, 255, 0.664);
-    display: block;
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.timeline-container::after {
-    content: '';
-    position: absolute;
-    width: 6px;
-    background-color: rgb(0, 255, 255);
-    top: 0;
-    bottom: 0;
-    transition: background-color 0.3s;
-    z-index: 1;
-}
-
-/* Garis pertama (sebelumnya sudah ada) */
-.timeline-container::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-
-/* Mode gelap untuk kedua garis */
-body.dark-mode .timeline-container::after,
-body.dark-mode .timeline-container::before {
-    background-color: #66bb6a00;
-}
-
-
-.timeline-block {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-    transition: transform 0.3s;
-    z-index: 3;
-}
-
-.timeline-block::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: rgba(0, 255, 255, 0.603);
-    border: 4px solid #fff;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 3;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-body.dark-mode .timeline-block::after {
-    background-color: #66bb6a;
-    border-color: #2c2c2c;
-}
-
-.timeline-block:nth-child(odd) {
-    left: 0;
-}
-
-.timeline-block:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-block:nth-child(even)::after {
-    left: -16px;
-}
-
-.timeline-content {
-    padding: 20px 30px;
-    background-color: #00ffea56;
-    position: relative;
-    border-radius: 6px;
-    box-shadow: 0 8px 10px rgb(0, 247, 255);
-    transition: background-color 0.5s, box-shadow 0.3s;
-}
-
-body.dark-mode .timeline-content {
-    background-color: #2c2c2c;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-content h3 {
-    margin-top: 0;
-    color: rgba(0, 255, 255, 0.664);
-    transition: color 0.3s;
-}
-
-body.dark-mode .timeline-content h3 {
-    color: #66bb6a;
-}
-
-.timeline-content p {
-    margin: 10px 0 0 0;
-    transition: color 0.3s;
-}
-
-body.dark-mode .timeline-content p {
-    color: #ddd;
-}
-
-/* Contact Section */
-.contact-section {
-    padding: 50px 20px;
-    background-color: #00f7ff00;
-    transition: background-color 0.3s;
-}
-
-body.dark-mode .contact-section {
-    background-color: #00ffff;
-}
-
-.contact-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.contact-section h2::after {
-    content: '';
-    width: 60px;
-    height: 4px;
-    background: rgba(0, 255, 255, 0.664);
-    display: block;
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
-}
-
-#contactForm {
-    max-width: 600px;
-    margin: 0 auto;
-    display: grid;
-    gap: var(--space-md);
-    padding: var(--space-md);
-}
-
-#contactForm input,
-#contactForm textarea {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: var(--space-sm);
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: border-color 0.3s, background-color 0.3s, color 0.3s;
-}
-
-body.dark-mode #contactForm input,
-body.dark-mode #contactForm textarea {
-    background-color: #2b2828;
-    border-color: #444;
-    color: #f1f1f1;
-}
-
-#contactForm input:focus,
-#contactForm textarea:focus {
-    border-color: #00e1ff;
-    outline: none;
-}
-
-body.dark-mode #contactForm input:focus,
-body.dark-mode #contactForm textarea:focus {
-    border-color: #66bb6a;
-}
-
-#contactForm button {
-    padding: 15px;
-    background-color: #00e1ff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#contactForm button:hover {
-    background-color: #0bdaff;
-    transform: scale(1.05);
-}
-
-body.dark-mode #contactForm button {
-    background-color: #66bb6a;
-}
-
-body.dark-mode #contactForm button:hover {
-    background-color: #4caf50;
-}
-
-.feedback {
-    text-align: center;
-    font-size: 1em;
-    color: green;
-    transition: color 0.3s;
-}
-
-body.dark-mode .feedback {
-    color: #66bb6a;
-}
-
-/* Footer */
-footer {
-    background-color: #00f7ff;
-    color: rgba(58, 199, 192, 0);
-    padding: 20px;
-    text-align: center;
-    position: relative;
-}
-
-body.dark-mode footer {
-    background-color: #1e1e1e;
-    color: #f1f1f1;
-}
-
-.social-links {
-    margin-top: 10px;
-}
-
-.social-links a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.5em;
-    transition: color 0.3s;
-}
-
-body.dark-mode .social-links a {
-    color: #f1f1f1;
-}
-
-.social-links a:hover {
-    color: #00f7ff;
-}
-
-body.dark-mode .social-links a:hover {
-    color: #66bb6a;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1200px) {
-    .skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .timeline-container::after {
-        /* Sesuaikan untuk mobile */
-        left: 2rem;
-        transform: none;
-    }
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abizar Diaz Ulhaq - Profesional Portfolio & Bio">
+    <meta name="keywords" content="Abizar Diaz Ulhaq, Portfolio, Public Speaker, IoT, Software Engineering">
+    <meta name="author" content="Abizar Diaz Ulhaq">
+    <title>Abizar Diaz Ulhaq- Portfolio</title>
+    <link rel="stylesheet" href="AbieStyles.css">
+    <link rel="icon" href="Logo_Abie-removebg-preview (1).png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <div class="circle-background"></div>
+    <div class="sphere-container">
+        <!-- Glowing rotating elements surrounding the logo -->
+        <div class="glowing-sphere">
+            <!-- Static 3D logo in the center -->
+            <div class="logo-center"></div>
+        </div>
+    </div>
     
-    .timeline-block {
-        width: 100%;
-        padding-left: 4rem;
-    }
-
-    .timeline-block:nth-child(even)::after {
-        left: -16px;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    .hero h1 {
-        font-size: 3em;
-    }
-
-    .hero .subheading {
-        font-size: 1.2em;
-    }
-
-    .skill-card h3 {
-        font-size: 1.3em;
-    }
-
-    .modal-content {
-        width: 95%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .navbar .menu {
-        position: fixed;
-        top: 60px;
-        right: -100%;
-        width: min(80%, 300px); /* Gunakan min() untuk responsivitas lebih baik */
-        height: calc(100vh - 60px);
-        background: rgba(47, 205, 233, 0.95);
-        backdrop-filter: blur(8px);
-        transition: 0.3s ease;
-        padding: var(--space-md);
-    }
-
-    .navbar .menu.active {
-        right: 0;
-    }
-
-    .navbar .menu .nav-link {
-        padding: 15px;
-        border-radius: 0;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .timeline-container::after {
-        left: 90px;
-    }
-
-    .timeline-block {
-        width: 100%;
-        padding-left: 120px;
-        padding-right: 30px;
-    }
-
-    .timeline-block::after {
-        left: 60px;
-    }
-
-    .timeline-block:nth-child(even) {
-        left: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .hero h1 {
-        font-size: 2.5em;
-    }
-
-    .hero .subheading {
-        font-size: 1em;
-    }
-
-    .toggle-label {
-        width: 40px;
-        height: 20px;
-    }
-
-    .toggle-switch {
-        width: 16px;
-        height: 16px;
-        top: 2px;
-        left: 2px;
-    }
-
-    .skills-section h2,
-    .projects-section h2,
-    .timeline-section h2,
-    .contact-section h2 {
-        font-size: 2em;
-    }
-
-    .photo-border {
-        border-width: 3px;
-    }
-
-    .timeline-container::after {
-        left: 45px;
-    }
-
-    .timeline-block {
-        padding-left: 80px;
-    }
-
-    .timeline-block::after {
-        left: 30px;
-    }
+    <!-- Falling star effects in the background -->
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
+    <div class="falling-star"></div>
     
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-        }
-}
+    
 
-/* Additional Animations and Effects */
-.animate-text {
-    display: inline-block;
-    position: relative;
-    animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid #ff990000;
-}
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+</head>
 
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
 
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: #00eeff; }
-}
+    <!-- Full-screen dynamic background with parallax and animated elements -->
+    <div class="background">
+        <div class="clouds"></div>
+        <div class="leaves"></div>
+        <div class="water-ripple"></div>
+        <div class="stars"></div>
+        <div class="sun"></div>
+        <div class="moon"></div>
+    </div>
 
-/* Button Hover Effects */
-.btn {
-    padding: 12px 30px;
-    background-color: #00ccff;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    font-weight: bold;
-}
+    <!-- Wrapper for main content -->
+    <div class="wrapper">
+        <!-- Header Section -->
+        <header class="hero">
+            <div class="navbar">
+                <img src="Logo_Abie-removebg-preview (1).png" alt="Logo" class="logo">
+                <nav aria-label="Main Navigation">
+                    <ul class="menu">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#timeline" class="nav-link">Timeline</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger" aria-label="Toggle Navigation" tabindex="0">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <h1 class="animate-text">Abizar Diaz Ulhaq</h1>
+                <p class="subheading">Full Stack Developer | Innovator | Leader</p>
+                <a href="#about" class="scroll-btn">Explore My Work</a>
+                <!-- Dark Mode Toggle -->
+                <div class="theme-toggle">
+                    <input type="checkbox" id="darkModeToggle">
+                    <label for="darkModeToggle" class="toggle-label">
+                        <span class="toggle-inner"></span>
+                        <span class="toggle-switch"></span>
+                    </label>
+                </div>
+            </div>
+        </header>
 
-.btn:hover {
-    background-color: #00e6d3;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
+        <!-- About Me Section -->
+        <section id="about" class="about-section parallax">
+    <div class="about-content">
+        <img src="Foto web.jpg" alt="Abizar Diaz Ulhaq" class="profile-img" loading="lazy">
+        <h2>About Me</h2>
+        <p>Hello, I’m Abizar Diaz Ulhaq, a Public Speaker with a practical experience from 5 years ago. Passionate about innovative tech and leadership, I aim to integrate social impact into technology.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/abizar-diaz-ulhaq-01623b232/" target="_blank">
+                <img src="Linkedin.png" class="Linkedin-img" alt="LinkedIn">
+            </a>
+            <a href="https://www.instagram.com/abizarrdzulhq_" target="_blank">
+                <img src="Instagram.png" class="Instagram-img" alt="Instagram">
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=6285215494429" target="_blank">
+                <img src="Whatsapp.png" class="Whatsapp-img" alt="WhatsApp">
+            </a>
+            <a href="https://youtube.com/@sanomanjiro-pj6us?si=My0ffw1aOEZNxEKf" target="_blank">
+                <img src="Youtube.png" class="Youtube-img" alt="YouTube">
+            </a>
+        </div>
+    </div>
+</section>
 
-body.dark-mode .btn {
-    background-color: #66bb6a;
-}
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Viirtual Asisstant</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="85%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Public Speaking</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>IoT & Embedded Systems</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="65%"></div>
+                    </div>
+                </div>
+                <!-- Additional Skills -->
+                <div class="skill-card">
+                    <h3>Editing</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Jurnal Chekcer</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="70%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Desgin</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="80%"></div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3>Machine Learning</h3>
+                    <div class="skill-bar">
+                        <div class="progress" data-progress="65%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-body.dark-mode .btn:hover {
-    background-color: #4caf50;
-}
+        <!-- Projects Section with 6 bordered images for photos -->
+        <section id="projects" class="projects-section">
+            <h2>My Work Portfolio</h2>
 
-/* Footer Hover Effects */
-footer a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.3s;
-}
+            <!-- Bordered Photo Gallery -->
+            <div class="photo-grid">
+                <div class="photo-border">
+                    <img src="Project Caleg.jpeg" alt="Project 1" class="project-img" onclick="openModal(1)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project LPPSP UI.jpeg" alt="Project 2" class="project-img" onclick="openModal(2)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Bintang Lima Brata.jpeg" alt="Project 3" class="project-img" onclick="openModal(3)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Adzan Battle Indonesia.jpeg" alt="Project 4" class="project-img" onclick="openModal(4)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Poster Promo.jpeg" alt="Project 5" class="project-img" onclick="openModal(5)" loading="lazy">
+                </div>
+                <div class="photo-border">
+                    <img src="Project Film Panggenan.jpeg" alt="Project 6" class="project-img" onclick="openModal(6)" loading="lazy">
+                </div>
+            
+            </div>
 
-footer a:hover {
-    color: #00ffea;
-}
+            <!-- Modal for displaying the project gallery -->
+            <div id="modalGallery" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+                    <div class="slides fade">
+                        <img src="images/photo1_large.jpg" alt="Project 1">
+                        <div class="caption">Project 1: Smart Energy System</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo2_large.jpg" alt="Project 2">
+                        <div class="caption">Project 2: AI-Based Induction Stove</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo3_large.jpg" alt="Project 3">
+                        <div class="caption">Project 3: IoT Home Automation</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo4_large.jpg" alt="Project 4">
+                        <div class="caption">Project 4: Sustainable Energy Solutions</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo5_large.jpg" alt="Project 5">
+                        <div class="caption">Project 5: Machine Learning Model</div>
+                    </div>
+                    <div class="slides fade">
+                        <img src="images/photo6_large.jpg" alt="Project 6">
+                        <div class="caption">Project 6: Full Stack Web Application</div>
+                    </div>
 
-body.dark-mode footer a:hover {
-    color: #66bb6a;
-}
+                    <!-- Next/previous controls -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
 
-/* Scroll Button Animation */
-.scroll-btn {
-    position: relative;
-}
+        <!-- Dynamic Timeline Section for Innovation Highlights -->
+        <section id="timeline" class="timeline-section">
+            <h2>Innovation Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2019</h3>
+                        <p>Launched my first IoT-based project: a smart energy system.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2020</h3>
+                        <p>Developed a machine learning model for energy consumption prediction.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2021</h3>
+                        <p>Received the ITB Excellence Award for innovations in smart technology.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2022</h3>
+                        <p>Built a full-stack web application for home automation using React and Node.js.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>Stepcharge was recognized as one of the top 10 sustainable projects in Indonesia.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+                <div class="timeline-block">
+                    <div class="timeline-content">
+                        <h3>2024</h3>
+                        <p>Developed AI-based induction stove (STEVAI) for energy-efficient smart homes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-.scroll-btn::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #00fff2;
-    left: 0;
-    bottom: -5px;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-    border-radius: 2px;
-}
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <h2>Contact Me</h2>
+            <form id="contactForm" action="sendEmail.php" method="POST"></action=>>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+                <p id="formFeedback" class="feedback"></p>
+            </form>
+        </section>
 
-.scroll-btn:hover::after {
-    transform: scaleX(1);
-}
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 Abizar Diaz Ulhaq. All Rights Reserved.</p>
+        </footer>
+    </div>
 
-/* Additional Interactions */
-.photo-border:hover .project-img {
-    filter: brightness(1.1);
-    transition: filter 0.3s;
-}
-
-.timeline-block:hover .timeline-content {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode .timeline-block:hover .timeline-content {
-    box-shadow: 0 4px 12px rgba(11, 155, 212, 0.541);
-}
-
-/* Accessibility Focus Styles */
-a:focus, button:focus, input:focus, textarea:focus {
-    outline: 2px dashed #00f7ff;
-    outline-offset: 4px;
-}
-
-body.dark-mode a:focus, body.dark-mode button:focus, body.dark-mode input:focus, body.dark-mode textarea:focus {
-    outline-color: #66bb6a;
-}
+    <!-- JavaScript for photo gallery, timeline, modal, and dynamic content -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="AbieScript.js"></script>
+</body>
+</html>
