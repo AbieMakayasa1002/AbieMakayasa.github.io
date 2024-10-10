@@ -469,23 +469,41 @@ h2::after {
 
 /* Hero Section */
 .hero {
-    position: relative;
-    text-align: center;
-    color: rgb(34, 125, 161);
-    padding: 100px 20px 60px 20px;
-    background: linear-gradient(to right, rgba(141, 242, 255, 0.226), rgba(9, 134, 165, 0.493));
-    transition: background 0.3s;
+        position: relative;
+        width: 100vw; /* Menggunakan viewport width */
+        min-height: 100vh; /* Minimal tinggi sesuai viewport */
+        text-align: center;
+        color: rgb(34, 125, 161);
+        padding: 100px 20px 60px 20px;
+        background: linear-gradient(to right, rgba(141, 242, 255, 0.226), rgba(9, 134, 165, 0.493));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        margin: 0; /* Hapus margin */
+        left: 0; /* Memastikan posisi dari kiri */
+        right: 0; /* Memastikan posisi dari kanan */
+        transition: background 0.3s;
 }
 
 body.dark-mode .hero {
     background: linear-gradient(to right, r=--gba(18, 18, 18, 0.8), rgba(8, 158, 163, 0.445));
 }
 
+.hero-content {
+    width: 100%;
+    max-width: 1200px; /* Maksimal lebar konten */
+    margin: 0 auto;
+    padding: 0 20px; /* Padding di sisi kiri dan kanan */
+}
+
 .hero h1 {
-    font-size: 4em;
+    font-size: clamp(2rem, 5vw, 4rem);
     font-weight: bold;
     margin: 0;
     letter-spacing: 2px;
+    width: 100%; /* Pastikan lebar penuh */
     animation: fadeInDown 2s ease-out;
     transition: color 0.3s;
 }
@@ -495,8 +513,9 @@ body.dark-mode .hero h1 {
 }
 
 .hero .subheading {
-    font-size: 1.5em;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
     margin: 10px 0 30px 0;
+    width: 100%; /* Pastikan lebar penuh */
     animation: fadeInUp 2s ease-out;
     transition: color 0.3s;
 }
@@ -1230,6 +1249,17 @@ body.dark-mode .social-links a:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .hero {
+        padding: 80px 15px 40px 15px; /* Kurangi padding untuk mobile */
+        width: 100%; /* Pastikan full width */
+        margin: 0; /* Hapus margin */
+        overflow: hidden; /* Mencegah scroll horizontal */
+    }
+
+    .hero-content {
+        padding: 0 15px; /* Kurangi padding untuk mobile */
+    }
+    
     .navbar .menu {
         position: fixed;
         top: 60px;
