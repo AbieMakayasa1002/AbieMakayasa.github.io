@@ -471,7 +471,7 @@ h2::after {
 .hero {
         position: relative;
         width: 100vw; /* Menggunakan viewport width */
-        min-height: 100vh; /* Minimal tinggi sesuai viewport */
+        
         text-align: center;
         color: rgb(34, 125, 161);
         padding: 100px 20px 60px 20px;
