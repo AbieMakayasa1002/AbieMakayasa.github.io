@@ -464,21 +464,25 @@ body.dark-mode {
 }
 
 .about-section {
-    padding: 50px 0;
+    padding: 100px 20px 60px 20px;
     background: #00f7ff00;
     position: relative;
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
+    margin: 0; /* Hapus margin */
+    left: 0; /* Memastikan posisi dari kiri */
+    right: 0; /* Memastikan posisi dari kanan */
 }
 
 .about-content {
     background: rgba(6, 189, 202, 0.301);
     padding: 40px;
     border-radius: 10px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     box-shadow: 0 5px 15px rgb(0, 0, 0);
     transition: background 0.3s, box-shadow 0.3s;
