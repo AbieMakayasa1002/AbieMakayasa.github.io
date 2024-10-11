@@ -193,7 +193,7 @@ button, a {
     color: #fff;
     border: 2px solid #00ffff;
     background-color: transparent;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 25px;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.747),
                 0 0 20px rgba(0, 255, 255, 0.4);
@@ -469,7 +469,6 @@ body.dark-mode {
         text-align: center;
         color: rgb(34, 125, 161);
         padding: 100px 20px 60px 20px;
-        background: linear-gradient(to right, rgba(141, 242, 255, 0.288), rgba(9, 134, 165, 0.493));
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -813,6 +812,7 @@ body.dark-mode .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 90vh;
 }
 body.dark-mode .skills-section {
     background-color: #ffffff;
@@ -906,6 +906,7 @@ body.dark-mode .skill-bar .progress {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 90vh;
 }
 
 .projects-section h2 {
@@ -1071,6 +1072,7 @@ body.dark-mode .caption {
     padding: 50px 20px;
     background-color: #03423d5e;
     transition: background-color 0.3s;
+    min-width: 90vh;
 }
 
 body.dark-mode .timeline-section {
@@ -1204,6 +1206,7 @@ body.dark-mode .timeline-content p {
     padding: 50px 20px;
     background-color: #00f7ff00;
     transition: background-color 0.3s;
+    min-width: 90vh;
 }
 
 body.dark-mode .contact-section {
@@ -1305,6 +1308,7 @@ footer {
     padding: 20px;
     text-align: center;
     position: relative;
+    min-width: 90vh;
 }
 
 body.dark-mode footer {
@@ -1318,7 +1322,6 @@ body.dark-mode footer {
 
 .social-links a {
     color: white;
-    margin: 0 10px;
     font-size: 1.5em;
     transition: color 0.3s;
 }
