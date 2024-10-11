@@ -464,18 +464,21 @@ body.dark-mode {
 }
 
 .about-section {
-    padding: 100px 20px 60px 20px;
-    background: #00f7ff00;
-    position: relative;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0; /* Hapus margin */
-    left: 0; /* Memastikan posisi dari kiri */
-    right: 0; /* Memastikan posisi dari kanan */
+        position: relative;
+        min-width: 90vh; /* Menggunakan viewport width */ 
+        text-align: center;
+        color: rgb(34, 125, 161);
+        padding: 100px 20px 60px 20px;
+        background: linear-gradient(to right, rgba(141, 242, 255, 0.288), rgba(9, 134, 165, 0.493));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        margin: 0; /* Hapus margin */
+        left: 0; /* Memastikan posisi dari kiri */
+        right: 0; /* Memastikan posisi dari kanan */
+        transition: background 0.3s;
 }
 
 .about-content {
