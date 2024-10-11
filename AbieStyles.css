@@ -38,6 +38,10 @@ body {
     width: var(--container-width);
     margin-inline: auto;
     padding-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .sphere-container {
@@ -464,6 +468,10 @@ body.dark-mode {
     background: #00f7ff00;
     position: relative;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .about-content {
@@ -474,6 +482,8 @@ body.dark-mode {
     margin: 0 auto;
     box-shadow: 0 5px 15px rgb(0, 0, 0);
     transition: background 0.3s, box-shadow 0.3s;
+    width: 90%; /* Responsive width */
+    text-align: center;
 }
 
 body.dark-mode .about-content {
@@ -500,6 +510,7 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     position: relative;
+    width: 100%;
 }
 
 h2::after {
@@ -508,10 +519,9 @@ h2::after {
     height: 4px;
     background: #00f7ff;
     display: block;
-    margin: 10px auto 0 auto;
+    margin: 10px auto;
     border-radius: 20px;
 }
-
 .about-content p {
     font-size: 1.1em;
     line-height: 1.6;
@@ -792,10 +802,11 @@ body.dark-mode .navbar {
 /* Skills Section */
 .skills-section {
     padding: 50px 20px;
-    background-color: #0e8f9400;
-    transition: background-color 0.3s;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
 body.dark-mode .skills-section {
     background-color: #ffffff;
 }
@@ -823,6 +834,7 @@ body.dark-mode .skills-section {
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--space-md);
+    width: 100%;
 }
 
 .skill-card {
@@ -883,6 +895,10 @@ body.dark-mode .skill-bar .progress {
 /* Image Gallery */
 .projects-section {
     padding: 50px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .projects-section h2 {
@@ -905,9 +921,9 @@ body.dark-mode .skill-bar .progress {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: var(--space-md);
-    max-width: 2000px;
+    max-width: 1200px;
     margin: 0 auto;
-
+    width: 100%;
 }
 
 .photo-border {
