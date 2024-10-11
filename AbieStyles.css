@@ -170,12 +170,19 @@ body {
 
 
 /* Glow effect for text */
-h1, h2, h3, p {
+h1, h2, h3, h5 {
     color: #fff;
     text-shadow: 0 0 10px rgba(0, 255, 255, 0), 
                  0 0 20px rgba(0, 255, 255, 0),
                  0 0 30px rgba(0, 255, 255, 0);
 }
+p {    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0), 
+                 0 0 20px rgba(0, 255, 255, 0),
+                 0 0 30px rgba(0, 255, 255, 0);
+    text-align: justify;
+}
+
 h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
 }
@@ -1069,8 +1076,8 @@ body.dark-mode .caption {
 
 /* Timeline Section */
 .timeline-section {
-    padding: 50px 20px;
-    background-color: #03423d5e;
+    padding: 10px 20px;
+    background-color: #0174745e;
     transition: background-color 0.3s;
     min-width: 90vh;
 }
@@ -1169,7 +1176,7 @@ body.dark-mode .timeline-block::after {
 }
 
 .timeline-content {
-    padding: 20px 30px;
+    padding: 10px 15px;
     background-color: #00ffea56;
     position: relative;
     border-radius: 6px;
@@ -1184,7 +1191,7 @@ body.dark-mode .timeline-content {
 
 .timeline-content h3 {
     margin-top: 0;
-    color: rgba(0, 255, 255, 0.664);
+    color: rgb(255, 255, 255);
     transition: color 0.3s;
 }
 
@@ -1204,7 +1211,7 @@ body.dark-mode .timeline-content p {
 /* Contact Section */
 .contact-section {
     padding: 50px 20px;
-    background-color: #00f7ff00;
+    background-color: #1bb4b975;
     transition: background-color 0.3s;
     min-width: 90vh;
 }
